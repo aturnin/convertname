@@ -27,7 +27,6 @@ def convert_name(dirname):
     num_noextension = 0  # how many non-target files
     num_error = 0       # number of errors
 
-    # files_indir = os.listdir(dirname)
     files_indir = os.walk(dirname)
 
     for root, dirs, files in files_indir:
@@ -77,8 +76,6 @@ def convert_name(dirname):
 
     return num_rename, num_norename, num_noextension, num_error
 
-
-# e:\projects\winpython\sony_reader3
 
 if __name__ == '__main__':
 
