@@ -14,13 +14,13 @@ def conv_epub(fname):
     try:
         zpf = zipfile.ZipFile(fname)
         zpf_f1 = zpf.read('META-INF/container.xml')
-        soup = bs(zpf_f1, 'lxml')
+        soup = bs(zpf_f1, features='xml')
 
         tag = soup.rootfile
         fname_content = tag.attrs['full-path']
 
         zpf_f2 = zpf.read(fname_content)
-        soup = bs(zpf_f2, 'lxml')
+        soup = bs(zpf_f2, features='xml')
 
         book_title = get_target_string(soup, 'dc:title')
         book_creator = get_target_string(soup, 'dc:creator')
@@ -52,7 +52,7 @@ def conv_fb2(fname):
 
     try:
         fp = open(fname, 'rb')
-        soup = bs(fp, 'lxml')
+        soup = bs(fp, features='xml')
         fp.close()
 
         book_title = get_target_string(soup, 'book-title')

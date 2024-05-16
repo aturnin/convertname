@@ -13,6 +13,7 @@ def clear_fname(fname):
     fname = fname.replace('?', '')
     fname = fname.replace('*', '')
     fname = fname.replace('\n', '')
+    fname = fname.replace('/', '')
     return fname
 
 
